@@ -50,11 +50,18 @@ let result = eazycmd.run(['123', '--proxy', 'http://xxxx', '--xxx']);
  * 
  * {
  *      params: [ '123' ], // 命令外参数
- *      cmds: {
- *          p: 'http://xxxx', // 命中的命令别名，带参数
- *          proxy: 'http://xxxx', // 命中的命令名字，带参数
- *          xxx: true, // 命中的命令名字，无别名，不带参数
- *      }
+ *      cmds: [
+ *          {
+ *              alias: 'p',
+ *              name: 'proxy',
+ *              hasParam: true,
+ *              value: 'http://xxxx', // 命中的命令别名，带参数
+ *          },
+ *          {
+ *              name: 'xxx',
+ *              value: true,
+ *          }
+ *      ]
  * }
  */
 ```

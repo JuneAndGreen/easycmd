@@ -3,7 +3,7 @@
 class Args {
     constructor(config = {}) {
         this.options = config.options || [];
-        this.commandMap = {};
+        this.cmds = [];
         this.params = [];
 
         // 检查帮助信息和版本信息
@@ -26,7 +26,7 @@ class Args {
             throw new Error('args is required and it must be an array');
         }
 
-        this.commandMap = {};
+        this.cmds = [];
         this.params = [];
 
         if(!args.length) {
@@ -53,15 +53,15 @@ class Args {
             }
         }
 
-        if (this.commandMap.help) {
+        if (this.printHelp) {
             this.help();
-        } else if (this.commandMap.version) {
+        } else if (this.printVersion) {
             this.version();
         }
 
         return {
             params: [].concat(this.params),
-            cmds: Object.assign({}, this.commandMap)
+            cmds: [].concat(this.cmds)
         };
     }
 
@@ -71,10 +71,12 @@ class Args {
 
         if (arg === '-h' || arg === '--help') {
             // 帮助信息
-            this.commandMap.help = true;
+            this.cmds.push({ name: 'help', alias: 'h' });
+            this.printHelp = true;
         } else if (arg === '-v' || arg === '--version') {
             // 版本信息
-            this.commandMap.version = true;
+            this.cmds.push({ name: 'version', alias: 'v' });
+            this.printHelp = true;
         } else {
             // 其他配置参数
             let options = this.options;
@@ -95,8 +97,9 @@ class Args {
                 let value = hitOption.hasParam ? nextArg : true;
                 useNextArg = hitOption.hasParam; // 标记是否使用了下一个参数
 
-                if (hitOption.alias) this.commandMap[hitOption.alias] = value;
-                if (hitOption.name) this.commandMap[hitOption.name] = value;
+                let copyOption = Object.assign({}, hitOption);
+                copyOption.value = value;
+                this.cmds.push(copyOption);
             }
         }
 
