@@ -13,7 +13,7 @@ npm install --save easycmd
 ## 使用方式
 
 ```javascript
-const Eazycmd = require('../index');
+const Eazycmd = require('easycmd');
 
 let eazycmd = new Eazycmd({
     version: '0.0.1', // 版本信息
