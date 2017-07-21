@@ -1,8 +1,8 @@
 'use strict';
 
-const Eazycmd = require('../index');
+const Easycmd = require('../index');
 
-let eazycmd = new Eazycmd({
+let easycmd = new Easycmd({
     version: '0.0.1',
     help: `
         Usage: test [options] <filePath>
@@ -26,16 +26,16 @@ let eazycmd = new Eazycmd({
 });
 
 console.log('----------------------【1】----------------------');
-console.log(eazycmd.run([]));
+console.log(easycmd.run([]));
 console.log('----------------------【2】----------------------');
-console.log(eazycmd.run(['-v']));
+console.log(easycmd.run(['-v']));
 console.log('----------------------【3】----------------------');
-console.log(eazycmd.run(['--version']));
+console.log(easycmd.run(['--version']));
 console.log('----------------------【4】----------------------');
-console.log(eazycmd.run(['-h', '--xxx']));
+console.log(easycmd.run(['-h', '--xxx']));
 console.log('----------------------【5】----------------------');
-console.log(eazycmd.run([['123', '342'], '-p', 'http://xxxx', '542']));
+console.log(easycmd.run([['123', '342'], '-p', 'http://xxxx', '542']));
 console.log('----------------------【6】----------------------');
-console.log(eazycmd.run(['123', '--proxy', 'http://xxxx', '-o', './']));
+console.log(easycmd.run(['123', '--proxy', 'http://xxxx', '-o', './']));
 console.log('----------------------【7】----------------------');
-console.log(eazycmd.run(['-p', 'http://xxxx', '-o', './', '--xxx', '--yyy', 'june']));
+console.log(easycmd.run(['-p', 'http://xxxx', '-o', './', '--xxx', '--yyy', 'june']));

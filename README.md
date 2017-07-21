@@ -13,9 +13,9 @@ npm install --save easycmd
 ## 使用方式
 
 ```javascript
-const Eazycmd = require('easycmd');
+const Easycmd = require('easycmd');
 
-let eazycmd = new Eazycmd({
+let easycmd = new Easycmd({
     version: '0.0.1', // 版本信息
     help: `
         Usage: abc [options] <cba>
@@ -41,10 +41,10 @@ let eazycmd = new Eazycmd({
     ]
 });
 
-eazycmd.run(['-v']); // 输出版本号
-eazycmd.run(['-h']); // 输出帮助信息
+easycmd.run(['-v']); // 输出版本号
+easycmd.run(['-h']); // 输出帮助信息
 
-let result = eazycmd.run(['123', '--proxy', 'http://xxxx', '--xxx']);
+let result = easycmd.run(['123', '--proxy', 'http://xxxx', '--xxx']);
 /**
  * result内容如下：
  * 
