@@ -1,6 +1,6 @@
 {
   "name": "easycmd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a simple cmder for nodejs tool",
   "main": "index.js",
   "scripts": {

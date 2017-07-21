@@ -16,20 +16,23 @@ npm install --save easycmd
 const Eazycmd = require('../index');
 
 let eazycmd = new Eazycmd({
-    version: '0.0.1',
+    version: '0.0.1', // 版本信息
     help: `
-        Usage: test [options] <filePath>
+        Usage: abc [options] <cba>
 
         Options:
             -h, --help                   输出使用指南
             -v, --version                输出版本信息
-            -p, --proxy <proxy>          http代理
-            -o <dirPath>                 自定义输出目录，默认为process.pwd()
-            -r                           执行测试
-            --xxx                        你别管我，快走！
-            --yyy <name>                 我还有救，快去叫大夫！
-    `,
+            -p, --proxy <proxy>          aaa
+            -o <dirPath>                 bbb
+            -r                           ccc
+            --xxx                        ddd
+            --yyy <name>                 eee
+    `, // 帮助信息
     options: [
+        // alias - 命令别名
+        // name - 命令名字
+        // hasParam - 是否带参数
         { alias: 'p', name: 'proxy', hasParam: true },
         { alias: 'o', hasParam: true },
         { alias: 'r' },
@@ -41,9 +44,9 @@ let eazycmd = new Eazycmd({
 eazycmd.run(['-v']); // 输出版本号
 eazycmd.run(['-h']); // 输出帮助信息
 
-console.log(eazycmd.run(['123', '--proxy', 'http://xxxx', '--xxx']));
+let result = eazycmd.run(['123', '--proxy', 'http://xxxx', '--xxx']);
 /**
- * 输出内容如下：
+ * result内容如下：
  * 
  * {
  *      params: [ '123' ], // 命令外参数
