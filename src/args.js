@@ -39,7 +39,7 @@ class Args {
                 if (typeof arg === 'string') {
                     arg = arg.trim();
 
-                    if (/\-{1,2}[a-zA-Z]/.test(arg)) {
+                    if (/^\-{1,2}[a-zA-Z]/.test(arg)) {
                         // 配置参数
                         let useNextArg = this.setArg(arg, args[i + 1]);
                         if (useNextArg) i++;
