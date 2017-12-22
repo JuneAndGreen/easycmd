@@ -39,3 +39,5 @@ console.log('----------------------【6】----------------------');
 console.log(easycmd.run(['123', '--proxy', 'http://xxxx', '-o', './']));
 console.log('----------------------【7】----------------------');
 console.log(easycmd.run(['-p', 'http://xxxx', '-o', './', '--xxx', '--yyy', 'june']));
+console.log('----------------------【8】----------------------');
+console.log(easycmd.run(['123123']));

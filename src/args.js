@@ -28,6 +28,7 @@ class Args {
 
         this.cmds = [];
         this.params = [];
+        this.printHelp = false;
 
         if(!args.length) {
             this.help();
